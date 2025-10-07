@@ -63,31 +63,74 @@
       </div>
     </header>
 
-    <!-- Main Navigation -->
-    <section class="tabs-nav tabs-nav-section">
-      <div class="container">
-        <nav class="tabs-container">
-          <a class="tab-button {% if active_page == 'about' %}active{% endif %}" data-tab="about" href="{{ url_for('about') }}">
-            <i data-lucide="users"></i> Quem Somos
-          </a>
-          <a class="tab-button {% if active_page == 'cases' %}active{% endif %}" data-tab="cases" href="{{ url_for('cases') }}">
-            <i data-lucide="trending-up"></i> Cases de Sucesso
-          </a>
-          <a class="tab-button {% if active_page == 'methodology' %}active{% endif %}" data-tab="methodology" href="{{ url_for('methodology') }}">
-            <i data-lucide="clipboard-list"></i> Nossa Metodologia
-          </a>
-          <a class="tab-button {% if active_page == 'services' %}active{% endif %}" data-tab="services" href="{{ url_for('services') }}">
-            <i data-lucide="briefcase"></i> O Que Oferecemos
-          </a>
-          <a class="tab-button {% if active_page == 'investment' %}active{% endif %}" data-tab="investment" href="{{ url_for('investment') }}">
-            <i data-lucide="dollar-sign"></i> Investimento
-          </a>
-          <a class="tab-button {% if active_page == 'faq' %}active{% endif %}" data-tab="faq" href="{{ url_for('faq') }}">
-            <i data-lucide="help-circle"></i> FAQ
-          </a>
-        </nav>
+    <!-- Horizontal Scroll Navigation -->
+    <nav class="horizontal-navbar">
+      <div class="navbar-container">
+        <!-- Scroll Indicator Left -->
+        <button class="scroll-indicator scroll-left" aria-label="Rolar para esquerda">
+          <i data-lucide="chevron-left"></i>
+        </button>
+        
+        <!-- Navigation Menu with Horizontal Scroll -->
+        <div class="navbar-scroll-wrapper">
+          <div class="navbar-menu">
+            <a
+              class="nav-item {% if active_page == 'about' %}active{% endif %}"
+              data-tab="about"
+              href="{{ url_for('about') }}"
+            >
+              <i data-lucide="users" class="nav-icon"></i>
+              <span class="nav-text">Quem Somos</span>
+            </a>
+            <a
+              class="nav-item {% if active_page == 'cases' %}active{% endif %}"
+              data-tab="cases"
+              href="{{ url_for('cases') }}"
+            >
+              <i data-lucide="trending-up" class="nav-icon"></i>
+              <span class="nav-text">Cases de Sucesso</span>
+            </a>
+            <a
+              class="nav-item {% if active_page == 'methodology' %}active{% endif %}"
+              data-tab="methodology"
+              href="{{ url_for('methodology') }}"
+            >
+              <i data-lucide="clipboard-list" class="nav-icon"></i>
+              <span class="nav-text">Nossa Metodologia</span>
+            </a>
+            <a
+              class="nav-item {% if active_page == 'services' %}active{% endif %}"
+              data-tab="services"
+              href="{{ url_for('services') }}"
+            >
+              <i data-lucide="briefcase" class="nav-icon"></i>
+              <span class="nav-text">O Que Oferecemos</span>
+            </a>
+            <a
+              class="nav-item {% if active_page == 'investment' %}active{% endif %}"
+              data-tab="investment"
+              href="{{ url_for('investment') }}"
+            >
+              <i data-lucide="dollar-sign" class="nav-icon"></i>
+              <span class="nav-text">Investimento</span>
+            </a>
+            <a
+              class="nav-item {% if active_page == 'faq' %}active{% endif %}"
+              data-tab="faq"
+              href="{{ url_for('faq') }}"
+            >
+              <i data-lucide="help-circle" class="nav-icon"></i>
+              <span class="nav-text">FAQ</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Scroll Indicator Right -->
+        <button class="scroll-indicator scroll-right" aria-label="Rolar para direita">
+          <i data-lucide="chevron-right"></i>
+        </button>
       </div>
-    </section>
+    </nav>
 
     <main>
       <section class="container tab-sections">
@@ -119,7 +162,7 @@
 
     <!-- Initialize Lucide Icons -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         lucide.createIcons();
       });
     </script>

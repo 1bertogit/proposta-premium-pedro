@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize sticky navigation
     initStickyNav();
 
+    // Initialize horizontal scroll navigation
+    initHorizontalNav();
+
     // Initialize form validation
     initFormValidation();
     
@@ -79,6 +82,169 @@ function initTabs() {
             tabPane.classList.add('active');
         }
     }
+}
+
+// Horizontal Scroll Navigation
+function initHorizontalNav() {
+    const navbar = document.querySelector('.horizontal-navbar');
+    const scrollWrapper = document.querySelector('.navbar-scroll-wrapper');
+    const navMenu = document.querySelector('.navbar-menu');
+    const scrollLeftBtn = document.querySelector('.scroll-left');
+    const scrollRightBtn = document.querySelector('.scroll-right');
+    
+    if (!navbar || !scrollWrapper || !navMenu || !scrollLeftBtn || !scrollRightBtn) return;
+
+    // Scroll amount for each click
+    const scrollAmount = 200;
+    
+    // Update scroll indicators visibility
+    function updateScrollIndicators() {
+        const { scrollLeft, scrollWidth, clientWidth } = navMenu;
+        const maxScroll = scrollWidth - clientWidth;
+        
+        // Update wrapper classes for gradient effects
+        scrollWrapper.classList.toggle('can-scroll-left', scrollLeft > 0);
+        scrollWrapper.classList.toggle('can-scroll-right', scrollLeft < maxScroll);
+        scrollWrapper.classList.toggle('at-end', scrollLeft >= maxScroll);
+        
+        // Update button visibility
+        scrollLeftBtn.classList.toggle('hidden', scrollLeft <= 0);
+        scrollRightBtn.classList.toggle('hidden', scrollLeft >= maxScroll);
+    }
+    
+    // Scroll left function
+    function scrollLeft() {
+        navMenu.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Scroll right function
+    function scrollRight() {
+        navMenu.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Scroll to active item
+    function scrollToActiveItem() {
+        const activeItem = navMenu.querySelector('.nav-item.active');
+        if (activeItem) {
+            const itemRect = activeItem.getBoundingClientRect();
+            const menuRect = navMenu.getBoundingClientRect();
+            const scrollLeft = navMenu.scrollLeft;
+            
+            // Calculate if item is visible
+            const itemLeft = itemRect.left - menuRect.left + scrollLeft;
+            const itemRight = itemLeft + itemRect.width;
+            const visibleLeft = scrollLeft;
+            const visibleRight = scrollLeft + menuRect.width;
+            
+            // Scroll if item is not fully visible
+            if (itemLeft < visibleLeft) {
+                navMenu.scrollTo({
+                    left: itemLeft - 20,
+                    behavior: 'smooth'
+                });
+            } else if (itemRight > visibleRight) {
+                navMenu.scrollTo({
+                    left: itemRight - menuRect.width + 20,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }
+    
+    // Event listeners
+    scrollLeftBtn.addEventListener('click', scrollLeft);
+    scrollRightBtn.addEventListener('click', scrollRight);
+    
+    // Update indicators on scroll
+    navMenu.addEventListener('scroll', updateScrollIndicators);
+    
+    // Update indicators on resize
+    window.addEventListener('resize', () => {
+        updateScrollIndicators();
+        // Scroll to active item on resize to maintain visibility
+        setTimeout(scrollToActiveItem, 100);
+    });
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let scrollLeftStart = 0;
+    let isScrolling = false;
+    
+    navMenu.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].pageX;
+        scrollLeftStart = navMenu.scrollLeft;
+        isScrolling = true;
+    }, { passive: true });
+    
+    navMenu.addEventListener('touchmove', (e) => {
+        if (!isScrolling) return;
+        
+        const currentX = e.touches[0].pageX;
+        const diffX = startX - currentX;
+        navMenu.scrollLeft = scrollLeftStart + diffX;
+    }, { passive: true });
+    
+    navMenu.addEventListener('touchend', () => {
+        isScrolling = false;
+    }, { passive: true });
+    
+    // Keyboard navigation
+    navMenu.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            scrollLeft();
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            scrollRight();
+        }
+    });
+    
+    // Add scroll effect to navbar on page scroll
+    let lastScrollY = window.scrollY;
+    
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        lastScrollY = currentScrollY;
+    });
+    
+    // Initialize scroll indicators
+    updateScrollIndicators();
+    
+    // Scroll to active item on load
+    setTimeout(scrollToActiveItem, 100);
+    
+    // Auto-hide scroll indicators on large screens if content fits
+    function checkContentFit() {
+        if (window.innerWidth >= 1200) {
+            const needsScroll = navMenu.scrollWidth > navMenu.clientWidth;
+            scrollLeftBtn.style.display = needsScroll ? 'flex' : 'none';
+            scrollRightBtn.style.display = needsScroll ? 'flex' : 'none';
+            
+            if (!needsScroll) {
+                scrollWrapper.classList.remove('can-scroll-left', 'can-scroll-right', 'at-end');
+            }
+        } else {
+            scrollLeftBtn.style.display = 'flex';
+            scrollRightBtn.style.display = 'flex';
+        }
+    }
+    
+    // Check content fit on load and resize
+    checkContentFit();
+    window.addEventListener('resize', checkContentFit);
 }
 
 // Methodology Tabs

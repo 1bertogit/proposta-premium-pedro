@@ -1,5 +1,12 @@
-# Netlify redirects for Flask app
+# Netlify redirects for static site
 # Serve static files directly
 /static/*    /static/:splat    200
-# Redirect all other requests to Flask function
-/*    /.netlify/functions/app    200
+
+# Canonical URL for Investimentos page
+/investment /investimento/ 301
+/investment.html /investimento/ 301
+/investments /investimento/ 301
+/investimento.html /investimento/ 301
+
+# Fallback for unmatched routes to root index
+/*    /index.html    200

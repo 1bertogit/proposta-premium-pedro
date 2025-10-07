@@ -1,17 +1,19 @@
 [build]
-  command = "echo 'Build complete'"
-  functions = "netlify/functions"
-  publish = "."
+  # Build static site into dist and publish it
+  command = "python3 build_static.py"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18"
 
-[functions]
-  directory = "netlify/functions"
+## No serverless functions required for static site
+## [functions]
+##   directory = "netlify/functions"
 
+## Optional SPA-style fallback for unmatched paths
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/app"
+  to = "/index.html"
   status = 200
 
 [[headers]]

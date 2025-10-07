@@ -259,6 +259,56 @@
       border-radius: 10px;
     }
 
+    /* Alinhamento à esquerda para textos em divs desta página */
+    .investment-page div { text-align: left; }
+
+    /* Remover sublinhado de links nesta página */
+    .investment-page a {
+      text-decoration: none;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+    .investment-page a:hover,
+    .investment-page a:focus {
+      text-decoration: none;
+    }
+
+    /* Cards mobile para substituir tabela */
+    .investment-page .investment-table-cards {
+      display: none;
+      gap: 16px;
+      margin: 20px 0 30px;
+    }
+
+    .investment-page .investment-table-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-left: 5px solid #ff6b35;
+      padding: 16px;
+    }
+
+    .investment-page .investment-table-card h5 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .investment-page .investment-table-card .badge {
+      display: inline-block;
+      background: #ff6b35;
+      color: #fff;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 14px;
+    }
+
+    .investment-page .investment-table-card .desc {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
     .investment-page .investment-service-number {
       background: linear-gradient(135deg, #ff6b35 0%, #e63946 100%);
       color: #fff;
@@ -347,12 +397,71 @@
         font-size: 26px;
       }
 
+      .investment-page .investment-initial,
+      .investment-page .investment-highlight {
+        padding: 24px;
+      }
+
+      .investment-page .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .investment-page .investment-table th,
+      .investment-page .investment-table td {
+        padding: 12px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .investment-page .investment-table {
+        min-width: 520px;
+      }
+
       .investment-page .investment-services-grid {
         grid-template-columns: 1fr;
       }
 
       .investment-page .investment-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      /* Esconder tabela e mostrar cards no mobile estreito */
+      .investment-page .table-responsive { display: none; }
+      .investment-page .investment-table-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      /* Ajustes finos de tipografia */
+      .investment-page h1 { font-size: 28px; }
+      .investment-page h2 { font-size: 22px; }
+      .investment-page h3 { font-size: 20px; }
+      .investment-page .investment-card .price { font-size: 32px; }
+
+      /* Serviços: empilhar conteúdo para evitar overflow */
+      .investment-page .investment-service-item {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+      }
+
+      /* Quebra segura de textos longos */
+      .investment-page p,
+      .investment-page li,
+      .investment-page td,
+      .investment-page th {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      /* Aumentar área de toque e legibilidade dos links no mobile */
+      .investment-page a {
+        display: inline-block;
+        line-height: 1.4;
+        padding: 8px 0;
       }
     }
 
@@ -439,7 +548,8 @@
 
         <h3>Tabela de Gatilhos Progressivos</h3>
 
-        <table class="investment-table">
+        <div class="table-responsive">
+        <table class="table investment-table">
           <thead>
             <tr>
               <th>Faixa de Faturamento</th>
@@ -481,6 +591,38 @@
             </tr>
           </tbody>
         </table>
+        </div>
+
+        <!-- Versão mobile em cards (exibida em ≤576px) -->
+        <div class="investment-table-cards">
+          <div class="investment-table-card">
+            <h5>Faixa de Faturamento</h5>
+            <div class="badge">R$ 0 a R$ 170 mil</div>
+            <div class="desc"><strong style="color:#ff6b35">0%</strong> de remuneração variável</div>
+            <div class="desc">Você recupera 100% do investimento</div>
+          </div>
+
+          <div class="investment-table-card">
+            <h5>Faixa de Faturamento</h5>
+            <div class="badge">R$ 170 mil a R$ 500 mil</div>
+            <div class="desc"><strong style="color:#ff6b35">5%</strong> sobre o excedente</div>
+            <div class="desc">Fase de expansão controlada</div>
+          </div>
+
+          <div class="investment-table-card">
+            <h5>Faixa de Faturamento</h5>
+            <div class="badge">R$ 500 mil a R$ 1 milhão</div>
+            <div class="desc"><strong style="color:#ff6b35">8%</strong> sobre o excedente</div>
+            <div class="desc">Aceleração de crescimento</div>
+          </div>
+
+          <div class="investment-table-card">
+            <h5>Faixa de Faturamento</h5>
+            <div class="badge">Acima de R$ 1 milhão</div>
+            <div class="desc"><strong style="color:#ff6b35">10%</strong> sobre o excedente</div>
+            <div class="desc">Escala internacional consolidada</div>
+          </div>
+        </div>
 
         <div class="investment-example">
           <h4><i data-lucide="bar-chart-3"></i> Exemplo Prático</h4>

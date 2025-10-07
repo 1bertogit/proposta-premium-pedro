@@ -1,230 +1,226 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %}Cases de Sucesso | PROPOSTA COMERCIAL
+COMPLETA{% endblock %} {% block content %}
+<div class="tab-content">
+  <section id="cases" class="tab-pane active">
+    <section class="card">
+      <h2 class="section-title">ALGUNS CASES DE SUCESSO</h2>
 
-{% block title %}Cases de Sucesso | PROPOSTA COMERCIAL COMPLETA{% endblock %}
-
-{% block content %}
-  <div class="tab-content">
-    <section id="cases" class="tab-pane active">
-      <section class="card">
-        <h2 class="section-title">ALGUNS CASES DE SUCESSO</h2>
-
-        <!-- Case 1 - Dr. Fernando Nakamura -->
-        <section class="case-study">
-          <div class="case-left">
-            <img
-              src="{{ url_for('static', filename='assets/Dr_Fernando_Nakamura.png') }}"
-              alt="Dr. Fernando Nakamura"
-              class="case-image"
-            />
-          </div>
-          <div class="case-right">
-            <h3 class="case-doctor-name">
-              Dr. Fernando Nakamura | Expert em Rhinoplastia e pioneiro em
-              Rinoplastia Híbrida
-            </h3>
-
-            <div class="case-details">
-              <div class="case-info-column">
-                <p><strong>Início da parceria:</strong> Março de 2020</p>
-                <p><strong>Lançamentos realizados:</strong> 7</p>
-                <p>
-                  <strong>Faturamento:</strong> De 0 para aproximadamente R$ 24
-                  milhões
-                </p>
-                <p>
-                  <strong>Investimento total:</strong> Aproximadamente R$ 800 mil
-                </p>
-              </div>
-              <div class="case-info-column">
-                <p><strong>ROAS:</strong> 30x</p>
-                <p><strong>Alunos:</strong> 2.076 em 49 países</p>
-                <p><strong>Idiomas:</strong> Português, Inglês e Espanhol</p>
-                <p>
-                  <strong>Resultado:</strong> De melhor cirurgião de Brasília
-                  para Top referência mundial em Rinoplastia Híbrida
-                </p>
-              </div>
-            </div>
-
-            <p class="mt-3"><strong>O que construímos:</strong></p>
-            <div class="case-results">
-              <div class="case-results-column">
-                <ul class="list">
-                  <li>
-                    Imersão presencial em Miami (terceira edição - HRET) -
-                    $8.000,00
-                  </li>
-                  <li>Metaverso e NFT</li>
-                  <li>5 cursos online</li>
-                  <li>Plataforma: Perface Academy</li>
-                </ul>
-              </div>
-              <div class="case-results-column">
-                <ul class="list">
-                  <li>
-                    Curso presencial mensal para 4 médicos (5 em 1) - R$
-                    60.000,00
-                  </li>
-                  <li>Comunidade global de alunos</li>
-                  <li>Instagram: @drnakamura</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Video Case Dr. Fernando Nakamura -->
-        <section class="video-case-container">
-          <h3 class="video-title">Veja o depoimento do Dr. Fernando Nakamura:</h3>
-          <div class="video-wrapper">
-            <iframe
-              width="100%"
-              height="315"
-              src="https://www.youtube.com/embed/ZcpjAH2fwG0"
-              title="Depoimento Dr. Fernando Nakamura"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </section>
-
-        <!-- Case 2 - Dr. Marcelo Cury -->
-        <section class="case-study">
-          <div class="case-left">
-            <img
-              src="{{ url_for('static', filename='assets/Dr_Marcelo._Curypng.png') }}"
-              alt="Dr. Marcelo Cury"
-              class="case-image"
-            />
-          </div>
-          <div class="case-right">
-            <h3 class="case-doctor-name">
-              Dr. Marcelo Cury | Expert em Blefaroplastia | Maior autoridade em
-              casos complexos da América Latina
-            </h3>
-
-            <div class="case-details">
-              <div class="case-info-column">
-                <p><strong>Início da parceria:</strong> Junho de 2023</p>
-                <p><strong>Lançamentos realizados:</strong> 4</p>
-                <p>
-                  <strong>Faturamento:</strong> De 0 para aproximadamente R$ 1,9
-                  milhão
-                </p>
-                <p><strong>Investimento total:</strong> R$ 62 mil</p>
-              </div>
-              <div class="case-info-column">
-                <p><strong>ROAS:</strong> 23x</p>
-                <p><strong>Alunos:</strong> 137 em 14 países</p>
-                <p><strong>Idiomas:</strong> Português e Espanhol</p>
-                <p>
-                  <strong>Resultado:</strong> Reconhecido como o melhor cirurgião
-                  de pálpebras do Brasil
-                </p>
-              </div>
-            </div>
-
-            <p class="mt-3"><strong>O que construímos:</strong></p>
-            <div class="case-results">
-              <div class="case-results-column">
-                <ul class="list">
-                  <li>
-                    1 curso presencial que começa em novembro no Rio de Janeiro
-                    - $4.8k
-                  </li>
-                  <li>1 Curso de Downsell - $727,00</li>
-                  <li>
-                    Curso presencial novembro 2024: The Art of Eyelid Surgery
-                    Practical
-                  </li>
-                </ul>
-              </div>
-              <div class="case-results-column">
-                <ul class="list">
-                  <li>1 cursos online principal - $1.900,00</li>
-                  <li>Instagram: @drmarcelocury</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Case 3 - Dr. Roberio Brandão -->
-        <section class="case-study" style="border-bottom: none">
-          <div class="case-left">
-            <img
-              src="{{ url_for('static', filename='assets/Dr_Roberio.jpg') }}"
-              alt="Dr. Roberio Brandão"
-              class="case-image"
-            />
-          </div>
-          <div class="case-right">
-            <h3 class="case-doctor-name">
-              Dr. Roberio Brandão | Mestre Tático da Cirurgia Facial | Criador do
-              protocolo inovador ENDOMIDFACE por Visão Direta
-            </h3>
-
-            <div class="case-details">
-              <div class="case-info-column">
-                <p><strong>Início da parceria:</strong> Março de 2024</p>
-                <p><strong>Lançamentos realizados:</strong> 4</p>
-                <p>
-                  <strong>Faturamento até outubro de 2024:</strong> De 0 para R$
-                  1,6 milhão
-                </p>
-                <p><strong>Investimento total:</strong> R$ 50 mil</p>
-              </div>
-              <div class="case-info-column">
-                <p><strong>ROAS:</strong> 22x</p>
-                <p><strong>Alunos:</strong> 131 em 07 países</p>
-                <p><strong>Idiomas:</strong> Português e Espanhol</p>
-                <p>
-                  <strong>Resultado:</strong> Com mais de 18 anos de experiência
-                  e mais de 1000 procedimentos faciais realizados sem
-                  intercorrências, ele provou que a habilidade e a precisão
-                  superam a tecnologia de alto custo cirurgião de Facelift do
-                  Brasil
-                </p>
-              </div>
-            </div>
-
-            <p class="mt-3"><strong>O que construímos:</strong></p>
-            <div class="case-results">
-              <div class="case-results-column">
-                <ul class="list">
-                  <li>3 cursos online</li>
-                  <li>Site: Facelift Mastery</li>
-                </ul>
-              </div>
-              <div class="case-results-column">
-                <ul class="list">
-                  <li>Instagram: @drroberiobrandao</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Lead Quality Example -->
-        <section class="lead-quality-example">
-          <h3 class="lead-quality-title">
-            Aluno que comprou de todos os nossos experts:
+      <!-- Case 1 - Dr. Fernando Nakamura -->
+      <section class="case-study">
+        <div class="case-left">
+          <img
+            src="{{ url_for('static', filename='assets/Dr_Fernando_Nakamura.png') }}"
+            alt="Dr. Fernando Nakamura"
+            class="case-image"
+          />
+        </div>
+        <div class="case-right">
+          <h3 class="case-doctor-name">
+            Dr. Fernando Nakamura | Expert em Rhinoplastia e pioneiro em
+            Rinoplastia Híbrida
           </h3>
-          <div class="lead-quality-box">
-            <img
-              src="{{ url_for('static', filename='assets/compra_aluno.png') }}"
-              alt="Aluno que comprou todos os cursos"
-              class="lead-quality-image"
-            />
+
+          <div class="case-details">
+            <div class="case-info-column">
+              <p><strong>Início da parceria:</strong> Março de 2020</p>
+              <p><strong>Lançamentos realizados:</strong> 7</p>
+              <p>
+                <strong>Faturamento:</strong> De 0 para aproximadamente R$ 24
+                milhões
+              </p>
+              <p>
+                <strong>Investimento total:</strong> Aproximadamente R$ 800 mil
+              </p>
+            </div>
+            <div class="case-info-column">
+              <p><strong>ROAS:</strong> 30x</p>
+              <p><strong>Alunos:</strong> 2.076 em 49 países</p>
+              <p><strong>Idiomas:</strong> Português, Inglês e Espanhol</p>
+              <p>
+                <strong>Resultado:</strong> De melhor cirurgião de Brasília para
+                Top referência mundial em Rinoplastia Híbrida
+              </p>
+            </div>
           </div>
-          <p class="lead-quality-description">
-            Nossa base de leads é de alta qualidade, com alunos engajados que
-            frequentemente adquirem múltiplos cursos de nossos experts,
-            maximizando o potencial de vendas cruzadas.
-          </p>
-        </section>
+
+          <p class="mt-3"><strong>O que construímos:</strong></p>
+          <div class="case-results">
+            <div class="case-results-column">
+              <ul class="list">
+                <li>
+                  Imersão presencial em Miami (terceira edição - HRET) -
+                  $8.000,00
+                </li>
+                <li>Metaverso e NFT</li>
+                <li>5 cursos online</li>
+                <li>Plataforma: Perface Academy</li>
+              </ul>
+            </div>
+            <div class="case-results-column">
+              <ul class="list">
+                <li>
+                  Curso presencial mensal para 4 médicos (5 em 1) - R$ 60.000,00
+                </li>
+                <li>Comunidade global de alunos</li>
+                <li>Instagram: @drnakamura</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Case Dr. Fernando Nakamura -->
+      <section class="video-case-container">
+        <h3 class="video-title">Veja o depoimento do Dr. Fernando Nakamura:</h3>
+        <div class="video-wrapper">
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/ZcpjAH2fwG0"
+            title="Depoimento Dr. Fernando Nakamura"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- Case 2 - Dr. Marcelo Cury -->
+      <section class="case-study">
+        <div class="case-left">
+          <img
+            src="{{ url_for('static', filename='assets/Dr_Marcelo._Curypng.png') }}"
+            alt="Dr. Marcelo Cury"
+            class="case-image"
+          />
+        </div>
+        <div class="case-right">
+          <h3 class="case-doctor-name">
+            Dr. Marcelo Cury | Expert em Blefaroplastia | Maior autoridade em
+            casos complexos da América Latina
+          </h3>
+
+          <div class="case-details">
+            <div class="case-info-column">
+              <p><strong>Início da parceria:</strong> Junho de 2023</p>
+              <p><strong>Lançamentos realizados:</strong> 4</p>
+              <p>
+                <strong>Faturamento:</strong> De 0 para aproximadamente R$ 1,9
+                milhão
+              </p>
+              <p><strong>Investimento total:</strong> R$ 62 mil</p>
+            </div>
+            <div class="case-info-column">
+              <p><strong>ROAS:</strong> 23x</p>
+              <p><strong>Alunos:</strong> 137 em 14 países</p>
+              <p><strong>Idiomas:</strong> Português e Espanhol</p>
+              <p>
+                <strong>Resultado:</strong> Reconhecido como o melhor cirurgião
+                de pálpebras do Brasil
+              </p>
+            </div>
+          </div>
+
+          <p class="mt-3"><strong>O que construímos:</strong></p>
+          <div class="case-results">
+            <div class="case-results-column">
+              <ul class="list">
+                <li>
+                  1 curso presencial que começa em novembro no Rio de Janeiro -
+                  $4.8k
+                </li>
+                <li>1 Curso de Downsell - $727,00</li>
+                <li>
+                  Curso presencial novembro 2024: The Art of Eyelid Surgery
+                  Practical
+                </li>
+              </ul>
+            </div>
+            <div class="case-results-column">
+              <ul class="list">
+                <li>1 cursos online principal - $1.900,00</li>
+                <li>Instagram: @drmarcelocury</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case 3 - Dr. Roberio Brandão -->
+      <section class="case-study" style="border-bottom: none">
+        <div class="case-left">
+          <img
+            src="{{ url_for('static', filename='assets/Dr_Roberio.jpg') }}"
+            alt="Dr. Roberio Brandão"
+            class="case-image"
+          />
+        </div>
+        <div class="case-right">
+          <h3 class="case-doctor-name">
+            Dr. Roberio Brandão | Mestre Tático da Cirurgia Facial | Criador do
+            protocolo inovador ENDOMIDFACE por Visão Direta
+          </h3>
+
+          <div class="case-details">
+            <div class="case-info-column">
+              <p><strong>Início da parceria:</strong> Março de 2024</p>
+              <p><strong>Lançamentos realizados:</strong> 4</p>
+              <p>
+                <strong>Faturamento até outubro de 2024:</strong> De 0 para R$
+                1,6 milhão
+              </p>
+              <p><strong>Investimento total:</strong> R$ 50 mil</p>
+            </div>
+            <div class="case-info-column">
+              <p><strong>ROAS:</strong> 22x</p>
+              <p><strong>Alunos:</strong> 131 em 07 países</p>
+              <p><strong>Idiomas:</strong> Português e Espanhol</p>
+              <p>
+                <strong>Resultado:</strong> Com mais de 18 anos de experiência e
+                mais de 1000 procedimentos faciais realizados sem
+                intercorrências, ele provou que a habilidade e a precisão
+                superam a tecnologia de alto custo cirurgião de Facelift do
+                Brasil
+              </p>
+            </div>
+          </div>
+
+          <p class="mt-3"><strong>O que construímos:</strong></p>
+          <div class="case-results">
+            <div class="case-results-column">
+              <ul class="list">
+                <li>3 cursos online</li>
+                <li>Site: Facelift Mastery</li>
+              </ul>
+            </div>
+            <div class="case-results-column">
+              <ul class="list">
+                <li>Instagram: @drroberiobrandao</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lead Quality Example -->
+      <section class="lead-quality-example">
+        <h3 class="lead-quality-title">
+          Aluno que comprou de todos os nossos experts:
+        </h3>
+        <div class="lead-quality-box">
+          <img
+            src="{{ url_for('static', filename='assets/compra_aluno.png') }}"
+            alt="Aluno que comprou todos os cursos"
+            class="lead-quality-image"
+          />
+        </div>
+        <p class="lead-quality-description">
+          Nossa base de leads é de alta qualidade, com alunos engajados que
+          frequentemente adquirem múltiplos cursos de nossos experts,
+          maximizando o potencial de vendas cruzadas.
+        </p>
       </section>
     </section>
-  </div>
+  </section>
+</div>
 {% endblock %}
